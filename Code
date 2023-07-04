@@ -1,0 +1,9 @@
+function main(workbook: ExcelScript.Workbook) {
+	let selectedSheet = workbook.getActiveWorksheet();
+	let selectedRange = workbook.getSelectedRange();
+	let cellValue = selectedRange.getValue();
+	let text=cellValue.toString();
+	let finalResult ='\''+text+'\''+'!A1';
+	
+	// Apply hyperlink to range A108 on selectedSheet}
+	selectedRange.setHyperlink({textToDisplay: text, documentReference:finalResult });
